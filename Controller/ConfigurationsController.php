@@ -2,16 +2,16 @@
 App::uses('ConfigurationAppController', 'Configuration.Controller');
 
 class ConfigurationsController extends ConfigurationAppController {
-
 	var $name = 'Configurations';
 	var $helpers = array('Html', 'Form');
+	public $layout = 'bootstrap';
 
-	function admin_index() {
+	function index() {
 		$this->Configuration->recursive = 0;
 		$this->set('configurations', $this->paginate());
 	}
 
-	function admin_view($id = null) {
+	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid Configuration.'));
 			$this->redirect(array('action'=>'index'));
@@ -19,7 +19,7 @@ class ConfigurationsController extends ConfigurationAppController {
 		$this->set('configuration', $this->Configuration->read(null, $id));
 	}
 
-	function admin_add() {
+	function add() {
 		if (!empty($this->data)) {
 			$this->Configuration->create();
 			if ($this->Configuration->save($this->data)) {
@@ -31,7 +31,7 @@ class ConfigurationsController extends ConfigurationAppController {
 		}
 	}
 
-	function admin_edit($id = null) {
+	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid Configuration'));
 			$this->redirect(array('action'=>'index'));
@@ -49,7 +49,7 @@ class ConfigurationsController extends ConfigurationAppController {
 		}
 	}
 
-	function admin_delete($id = null) {
+	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for Configuration'));
 			$this->redirect(array('action'=>'index'));
