@@ -15,7 +15,7 @@
 		<div class="col-md-3">
 			<div class="actions">
 				<div class="panel panel-default">
-					<div class="panel-heading"><?php echo __('Actions'); ?></div>
+					<div class="panel-heading">&nbsp;</div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;' . __('New Configuration'), array('action' => 'add'), array('escape' => false)); ?></li>
@@ -29,7 +29,6 @@
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<thead>
 					<tr>
-						<th><?php echo $this->Paginator->sort('id'); ?></th>
 						<th><?php echo $this->Paginator->sort('name'); ?></th>
 						<th><?php echo $this->Paginator->sort('value'); ?></th>
 						<th class="actions"></th>
@@ -38,7 +37,6 @@
 				<tbody>
 				<?php foreach ($configurations as $configuration): ?>
 					<tr>
-						<td><?php echo h($configuration['Configuration']['id']); ?>&nbsp;</td>
 						<td><?php echo h($configuration['Configuration']['name']); ?>&nbsp;</td>
 						<td><?php echo h($configuration['Configuration']['value']); ?>&nbsp;</td>
 						<td class="actions">

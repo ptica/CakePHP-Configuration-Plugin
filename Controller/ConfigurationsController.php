@@ -5,6 +5,12 @@ class ConfigurationsController extends ConfigurationAppController {
 	var $name = 'Configurations';
 	var $helpers = array('Html', 'Form');
 	public $layout = 'bootstrap';
+	public $paginate = array(
+		'limit' => 50,
+		'order' => array(
+			'Configuration.id' => 'asc',
+		)
+	);
 
 	function index() {
 		$this->Configuration->recursive = 0;
